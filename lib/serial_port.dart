@@ -7,4 +7,3 @@ import 'dart:convert';
 import 'dart-ext:src/serial_port';
 
 part 'src/serial_port_impl.dart';
-part 'src/helpers.dart';

@@ -1,13 +1,13 @@
 import 'package:serial_port/serial_port.dart';
 import 'dart:async';
-
+import 'dart:convert';
 
 var arduino;
 
 main(){
   var buffer = new StringBuffer();
   arduino = new SerialPort("/dev/tty.usbmodem1421");
-  arduino.onRead.map(BYTES_TO_STRING).listen((word){
+  arduino.onRead.transform(UTF8.decoder).listen((word){
     buffer.write(word);
     if(buffer.toString().startsWith("pong")){
       print(buffer.toString());
